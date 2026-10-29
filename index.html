@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sensor Quest — WSN Learning Adventure</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+
+    <!-- HALAMAN PEMBUKA -->
+    <section class="screen splash-screen" id="splashScreen">
+      <div class="splash-brand">
+        <span class="brand-mark">⌁</span>
+        <span>SENSOR <b>QUEST</b></span>
+      </div>
+
+      <div class="network-orbit orbit-one"></div>
+      <div class="network-orbit orbit-two"></div>
+
+      <div class="splash-content">
+        <span class="eyebrow">INTERACTIVE LEARNING ADVENTURE</span>
+        <h1>SENSOR <span>QUEST</span></h1>
+        <p class="splash-tagline">Explore, Learn, and Master Wireless Sensor Networks</p>
+
+        <div class="hero-network" aria-label="Alur jaringan sensor">
+          <div class="device">
+            <span>◉</span><b>Sensor Node</b><small>Collect data</small>
+          </div>
+          <div class="signal">
+            <span>〰</span><small>Wireless Signal</small>
+          </div>
+          <div class="device">
+            <span>▣</span><b>Gateway</b><small>Connect network</small>
+          </div>
+          <div class="signal">
+            <span>···</span><small>Data transfer</small>
+          </div>
+          <div class="device">
+            <span>☁</span><b>Server / Cloud</b><small>Store information</small>
+          </div>
+        </div>
+
+        <p class="splash-description">
+          Jelajahi dunia Wireless Sensor Network melalui pembelajaran interaktif dan tantangan gamifikasi.
+        </p>
+
+        <button class="btn btn-primary btn-large" onclick="showScreen('loginScreen')">
+          🚀 MULAI PETUALANGAN
+        </button>
+      </div>
+
+      <div class="splash-footer">LEARN • EXPLORE • ACHIEVE</div>
+    </section>
+
+    <!-- HALAMAN LOGIN -->
+    <section class="screen login-screen hidden" id="loginScreen">
+      <div class="login-brand">
+        <span class="brand-mark">⌁</span>
+        <b>SENSOR QUEST</b>
+      </div>
+
+      <div class="login-layout">
+        <div class="login-card">
+          <span class="eyebrow">YOUR NEXT MISSION STARTS HERE</span>
+          <h2>Welcome Back, Explorer!</h2>
+          <p class="muted">Login untuk melanjutkan petualanganmu.</p>
+
+          <form id="loginForm">
+            <label for="username">Username atau Email</label>
+            <input
+              id="username"
+              name="username"
+              autocomplete="username"
+              required
+              placeholder="Masukkan username atau email"
+            />
+
+            <label for="password">Password</label>
+            <div class="password-wrap">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+                placeholder="Masukkan password"
+              />
+              <button type="button" class="eye" onclick="togglePassword()">◉</button>
+            </div>
+
+            <div class="form-row">
+              <label class="check-label">
+                <input type="checkbox" id="rememberMe" />
+                Ingat saya
+              </label>
+              <a href="forgot_password.php">
+                Lupa password?
+              </a>
+            </div>
+
+            <button class="btn btn-primary full-width" type="submit">
+              MASUK →
+            </button>
+          </form>
+
+          <p class="signup-text">
+            Belum memiliki akun?
+            <a href="#" onclick="showScreen('registerScreen'); return false;">
+              Daftar sekarang
+            </a>
+          </p>
+        </div>
+
+        <div class="login-visual">
+          <div class="visual-glow"></div>
+
+          <div class="mini-network">
+            <div class="node n1">◉<small>Sensor</small></div>
+            <div class="node n2">⌁<small>Wireless</small></div>
+            <div class="node n3">▣<small>Gateway</small></div>
+            <div class="node n4">☁<small>Cloud</small></div>
+            <div class="connector c1"></div>
+            <div class="connector c2"></div>
+            <div class="connector c3"></div>
+          </div>
+
+          <h3>Mulai perjalananmu menjadi WSN Explorer!</h3>
+          <p>
+            Pelajari komponen dan cara kerja Wireless Sensor Network melalui pembelajaran interaktif.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HALAMAN PENDAFTARAN -->
+    <section class="screen login-screen hidden" id="registerScreen">
+      <div class="login-brand">
+        <span class="brand-mark">⌁</span>
+        <b>SENSOR QUEST</b>
+      </div>
+
+      <div class="login-layout">
+        <div class="login-card">
+          <span class="eyebrow">JOIN THE ADVENTURE</span>
+          <h2>Buat Akun Explorer!</h2>
+          <p class="muted">Daftar untuk memulai petualanganmu.</p>
+
+          <form id="registerForm">
+            <label for="regUsername">Username</label>
+            <input
+              id="regUsername"
+              name="username"
+              type="text"
+              autocomplete="username"
+              minlength="3"
+              maxlength="50"
+              pattern="[A-Za-z0-9_]{3,50}"
+              title="Gunakan 3–50 karakter berupa huruf, angka, atau garis bawah."
+              required
+              placeholder="Buat username"
+            />
+
+            <label for="regEmail">Email</label>
+            <input
+              id="regEmail"
+              name="email"
+              type="email"
+              autocomplete="email"
+              maxlength="100"
+              required
+              placeholder="Masukkan email aktif"
+            />
+
+            <label for="regPassword">Password</label>
+            <input
+              id="regPassword"
+              name="password"
+              type="password"
+              autocomplete="new-password"
+              minlength="8"
+              required
+              placeholder="Minimal 8 karakter"
+            />
+
+            <button class="btn btn-primary full-width" type="submit">
+              DAFTAR →
+            </button>
+          </form>
+
+          <p class="signup-text">
+            Sudah memiliki akun?
+            <a href="#" onclick="showScreen('loginScreen'); return false;">
+              Login sekarang
+            </a>
+          </p>
+        </div>
+
+        <div class="login-visual">
+          <div class="visual-glow"></div>
+          <h3>Selamat datang, calon WSN Explorer!</h3>
+          <p>
+            Buat akun dan mulai pelajari komponen serta cara kerja Wireless Sensor Network.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- APLIKASI UTAMA -->
+    <div class="app-shell hidden" id="mainApp">
+      <header class="topbar">
+        <button class="brand-button" onclick="navigate('dashboard')">
+          <span class="brand-mark">⌁</span>
+          <span>SENSOR <b>QUEST</b></span>
+        </button>
+
+        <div class="topbar-right">
+          <span class="points-pill">
+            ⭐ <b id="points">850</b> Points
+          </span>
+          <button class="icon-btn" title="Notifikasi">♧</button>
+          <div class="avatar">E</div>
+          <span class="explorer-name">Explorer</span>
+        </div>
+      </header>
+
+      <aside class="sidebar">
+        <div class="side-label">MENU UTAMA</div>
+
+        <button class="nav-item active" data-route="dashboard" onclick="navigate('dashboard')">
+          <span>⌂</span> Beranda
+        </button>
+
+        <button class="nav-item" data-route="map" onclick="navigate('map')">
+          <span>⌖</span> Peta Misi
+        </button>
+
+        <button class="nav-item" data-route="material1" onclick="navigate('material1')">
+          <span>▤</span> Materi
+        </button>
+
+        <button class="nav-item" data-route="quiz" onclick="navigate('quiz')">
+          <span>◎</span> Tantangan
+        </button>
+
+        <button class="nav-item" data-route="achievements" onclick="navigate('achievements')">
+          <span>♜</span> Prestasi
+        </button>
+
+        <button class="nav-item" data-route="profile" onclick="navigate('profile')">
+          <span>◉</span> Profil
+        </button>
+
+        <div class="sidebar-bottom">
+          <div class="sidebar-orb">⌁</div>
+          <b>Keep exploring!</b>
+          <small>
+            Setiap misi membawamu lebih dekat menjadi WSN Expert.
+          </small>
+        </div>
+      </aside>
+
+      <main class="main-content" id="mainContent"></main>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
